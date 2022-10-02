@@ -59,7 +59,7 @@ router.get("/", verifyTokenAndAdmin, async (req, res)=>{
     }
 });
 
-//GET USER status
+//GET USER STATS
 
 router.get("/stats", verifyTokenAndAdmin, async (req, res)=>{
     const date = new Date();

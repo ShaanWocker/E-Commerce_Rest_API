@@ -2,7 +2,7 @@ const Product = require("../models/Product");
 const {
     verifyToken,
     verifyTokenAndAdmin, 
-    verifyTokenAndAuthorization
+    verifyTokenAndAuthorization,
  } = require("./verifyToken");
 
 const router = require("express").Router();
@@ -64,17 +64,16 @@ router.get("/", async (req, res)=>{
         let products;
 
         if(qNew){
-            products = await Product.find().sort({createdAt: -1}).limit(5);
+            products = await Product.find().sort({createdAt: -1}).limit(1);
         } else if (qCategory){
             products = await Product.find({categories:{
                 $in: [qCategory],
             },
         });
-            } else {
+        } else {
             products = await Product.find();
         }
-
-    
+        
         res.status(200).json(products);
     }catch (err) {
         res.status(500).json(err);
