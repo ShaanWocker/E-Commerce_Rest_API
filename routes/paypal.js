@@ -1,7 +1,8 @@
 const router = require("express").Router();
-const paypal = require("@paypal/paypal-js")(process.env.PAYPAL_KEY);
+const KEY = process.env.PAYPAL_KEY;
+// const paypal = require("@paypal/paypal-js")(KEY);
 
-router.post("/api/payment", (req, res) => {
+router.post("/payment", (req, res) => {
     paypal.charges.create({
         source: req.body.tokenId,
         amount: req.body.amount,

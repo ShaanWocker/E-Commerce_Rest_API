@@ -1,13 +1,13 @@
 {
   "name": "honeyfloral-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "Honey Floral API",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Shaan Wocker",
   "license": "ISC",
   "dependencies": {
     "@paypal/paypal-js": "^4.2.1",
