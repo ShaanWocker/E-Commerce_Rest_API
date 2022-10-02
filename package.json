@@ -2,9 +2,9 @@
   "name": "honeyfloral-api",
   "version": "1.0.0",
   "description": "Honey Floral API",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "nodemon index.js"
   },
   "keywords": [],
   "author": "Shaan Wocker",
