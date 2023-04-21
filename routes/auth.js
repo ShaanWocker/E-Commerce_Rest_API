@@ -16,11 +16,14 @@ router.post("/register", async (req, res) => {
 
   try {
     const savedUser = await newUser.save();
+    localStorage.setItem("user", JSON.stringify(savedUser));
     res.status(201).json(savedUser);
   } catch (err) {
-    res.status(500).json(err);
+    console.error(err);
+    res.status(500).json({ message: "Failed to register user." });
   }
 });
+
 
 //LOGIN
 
@@ -55,4 +58,21 @@ router.post("/login", async (req, res) => {
   }
 });
 
+//LOGOUT
+router.post("/logout", async (req, res) => {
+  try {
+    // Remove the token from client-side storage
+    res.clearCookie("token");
+    res.status(200).json("Logout successful");
+  } catch (err) {
+    console.error(err);
+    res.status(500).json("Internal Server Error");
+  }
+});
+
 module.exports = router;
+
+
+
+
+
